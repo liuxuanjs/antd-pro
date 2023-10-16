@@ -1,17 +1,17 @@
 import Footer from '@/components/Footer';
 import { login } from '@/services/ant-design-pro/api';
-import { getFakeCaptcha } from '@/services/ant-design-pro/login';
+// import { getFakeCaptcha } from '@/services/ant-design-pro/login';
 import {
-  AlipayCircleOutlined,
+  // AlipayCircleOutlined,
   LockOutlined,
-  MobileOutlined,
-  TaobaoCircleOutlined,
+  // MobileOutlined,
+  // TaobaoCircleOutlined,
   UserOutlined,
-  WeiboCircleOutlined,
+  // WeiboCircleOutlined,
 } from '@ant-design/icons';
 import {
   LoginForm,
-  ProFormCaptcha,
+  // ProFormCaptcha,
   ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
@@ -22,29 +22,29 @@ import Settings from '../../../../config/defaultSettings';
 import React, { useState } from 'react';
 import { flushSync } from 'react-dom';
 
-const ActionIcons = () => {
-  const langClassName = useEmotionCss(({ token }) => {
-    return {
-      marginLeft: '8px',
-      color: 'rgba(0, 0, 0, 0.2)',
-      fontSize: '24px',
-      verticalAlign: 'middle',
-      cursor: 'pointer',
-      transition: 'color 0.3s',
-      '&:hover': {
-        color: token.colorPrimaryActive,
-      },
-    };
-  });
+// const ActionIcons = () => {
+//   const langClassName = useEmotionCss(({ token }) => {
+//     return {
+//       marginLeft: '8px',
+//       color: 'rgba(0, 0, 0, 0.2)',
+//       fontSize: '24px',
+//       verticalAlign: 'middle',
+//       cursor: 'pointer',
+//       transition: 'color 0.3s',
+//       '&:hover': {
+//         color: token.colorPrimaryActive,
+//       },
+//     };
+//   });
 
-  return (
-    <>
-      <AlipayCircleOutlined key="AlipayCircleOutlined" className={langClassName} />
-      <TaobaoCircleOutlined key="TaobaoCircleOutlined" className={langClassName} />
-      <WeiboCircleOutlined key="WeiboCircleOutlined" className={langClassName} />
-    </>
-  );
-};
+//   return (
+//     <>
+//       <AlipayCircleOutlined key="AlipayCircleOutlined" className={langClassName} />
+//       <TaobaoCircleOutlined key="TaobaoCircleOutlined" className={langClassName} />
+//       <WeiboCircleOutlined key="WeiboCircleOutlined" className={langClassName} />
+//     </>
+//   );
+// };
 
 const Lang = () => {
   const langClassName = useEmotionCss(({ token }) => {
@@ -172,14 +172,14 @@ const Login: React.FC = () => {
           initialValues={{
             autoLogin: true,
           }}
-          actions={[
-            <FormattedMessage
-              key="loginWith"
-              id="pages.login.loginWith"
-              defaultMessage="其他登录方式"
-            />,
-            <ActionIcons key="icons" />,
-          ]}
+          // actions={[
+          //   <FormattedMessage
+          //     key="loginWith"
+          //     id="pages.login.loginWith"
+          //     defaultMessage="其他登录方式"
+          //   />,
+          //   <ActionIcons key="icons" />,
+          // ]}
           onFinish={async (values) => {
             await handleSubmit(values as API.LoginParams);
           }}
@@ -196,13 +196,13 @@ const Login: React.FC = () => {
                   defaultMessage: '账户密码登录',
                 }),
               },
-              {
-                key: 'mobile',
-                label: intl.formatMessage({
-                  id: 'pages.login.phoneLogin.tab',
-                  defaultMessage: '手机号登录',
-                }),
-              },
+              // {
+              //   key: 'mobile',
+              //   label: intl.formatMessage({
+              //     id: 'pages.login.phoneLogin.tab',
+              //     defaultMessage: '手机号登录',
+              //   }),
+              // },
             ]}
           />
 
@@ -210,7 +210,7 @@ const Login: React.FC = () => {
             <LoginMessage
               content={intl.formatMessage({
                 id: 'pages.login.accountLogin.errorMessage',
-                defaultMessage: '账户或密码错误(admin/ant.design)',
+                defaultMessage: '账户或密码错误',
               })}
             />
           )}
@@ -263,7 +263,7 @@ const Login: React.FC = () => {
             </>
           )}
 
-          {status === 'error' && loginType === 'mobile' && <LoginMessage content="验证码错误" />}
+          {/* {status === 'error' && loginType === 'mobile' && <LoginMessage content="验证码错误" />}
           {type === 'mobile' && (
             <>
               <ProFormText
@@ -344,7 +344,7 @@ const Login: React.FC = () => {
                 }}
               />
             </>
-          )}
+          )} */}
           <div
             style={{
               marginBottom: 24,
@@ -353,13 +353,13 @@ const Login: React.FC = () => {
             <ProFormCheckbox noStyle name="autoLogin">
               <FormattedMessage id="pages.login.rememberMe" defaultMessage="自动登录" />
             </ProFormCheckbox>
-            <a
+            {/* <a
               style={{
                 float: 'right',
               }}
             >
               <FormattedMessage id="pages.login.forgotPassword" defaultMessage="忘记密码" />
-            </a>
+            </a> */}
           </div>
         </LoginForm>
       </div>
